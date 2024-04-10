@@ -1,0 +1,16 @@
+[id*="contact"] {
+  .home-section-2 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .home-section-13 {
+    margin-bottom: var(--offset-120);
+  }
+
+  .home-section-13 .decor-img {
+    @include to(680px) {
+      z-index: 1;
+    }
+  }
+}

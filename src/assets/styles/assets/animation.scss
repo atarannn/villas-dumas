@@ -1,0 +1,265 @@
+@import "vars";
+
+.mfp-3d-unfold {
+	.mfp-content {
+		perspective: 2000px;
+	}
+
+	.mfp-with-anim {
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+		transform-style: preserve-3d;
+		transform: rotateY(-60deg);
+	}
+
+	.mfp-bg {
+		opacity: 0;
+		transition: all 0.5s;
+	}
+}
+
+.mfp-ready {
+	.mfp-with-anim {
+		opacity: 1;
+		transform: rotateY(0deg);
+	}
+
+	.mfp-bg {
+		opacity: 0.8;
+	}
+}
+
+.mfp-removing {
+	.mfp-with-anim {
+		transform: rotateY(60deg);
+		opacity: 0;
+	}
+
+	.mfp-bg {
+		opacity: 0;
+	}
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 40%);
+  }
+}
+
+@keyframes MoveUpInitial {
+	to {
+		transform: translate3d(0,-105%,0);
+	}
+}
+
+@keyframes MoveUpEnd {
+	from {
+		transform: translate3d(0,100%,0);
+	}
+	to {
+		transform: translate3d(0,0,0);
+	}
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cubic-hover {
+  @include from(1024px) {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    &.title-60 {
+      line-height: 120%;
+      padding-right: 20px;
+    }
+    span {
+      transition: .2s linear;
+      display: inline-block;
+    }
+    &:after {
+      position: absolute;
+      bottom: 108%;
+      content: attr(data-text);
+      left: 0;
+      white-space: nowrap;
+      transition: .2s linear;
+      color: var(--gold-primary);
+    }
+    &:hover {
+      span {
+        transform: translateY(108%);
+      }
+      &:after {
+        transform: translateY(108%);
+      }
+    }
+  }
+}
+
+
+.desktop.landscape {
+  .link-hover {
+    span {
+      position: relative;
+
+      &:before {
+        content: "";
+        background: var(--white);
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+      }
+    }
+
+    &:hover {
+      span {
+        &:before {
+          transform-origin: 0% 50%;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+
+  .link-hover-2 {
+    span {
+      position: relative;
+
+      &:before {
+        content: "";
+        background: var(--blue-secondary);
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+      }
+    }
+
+    &:hover {
+      span {
+        &:before {
+          transform-origin: 0% 50%;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+
+  .form-hover {
+    .text-14-white {
+      position: relative;
+
+      &:before {
+        content: "";
+        background: var(--white);
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+      }
+    }
+
+    .menu-close, .menu-btn__icon__wrapper, .close-btn__icon {
+      transition: .3s ease-in-out;
+    }
+
+    &:hover {
+      .menu-close, .menu-btn__icon__wrapper, .close-btn__icon {
+        background: var(--white);
+      }
+      .text-14-white {
+        &:before {
+          transform-origin: 0% 50%;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+
+  .btn-hover {
+    transition: .3s ease-in-out;
+
+    svg {
+      transition: transform .3s ease-in-out;
+    }
+
+    &:hover {
+      background: var(--white);
+
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  .swiper-btn-hover {
+    transition: background .3s linear;
+
+    &:hover {
+      background: var(--gold-secondary);
+    }
+  }
+
+  .swiper-btn-hover-2 {
+    .swiper-btn {
+      transition: background .3s linear;
+    }
+
+    &:hover {
+      .swiper-btn {
+        background: var(--gold-secondary);
+      }
+    }
+  }
+
+  .swiper-btn-hover-3 {
+    transition: border .3s linear;
+
+    &:hover {
+      border: 1px solid var(--white);
+    }
+  }
+
+  .home-section-5__list-item {
+    &:hover {
+      .btn-hover {
+        background: var(--white);
+
+        svg {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,389 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--header-h-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 0 var(--field);
+  transition: height .3s .3s ease-in-out, background .3s ease-in-out, margin .3s .3s ease-in-out;
+  z-index: 100;
+  margin-top: 30px;
+
+  @include to(1600px) {
+    margin-top: 20px;
+  }
+
+  @include to(1024px) {
+    margin-top: 0;
+    background: rgba(23, 24, 27, 0.60);
+  }
+
+  @include to(680px) {
+    justify-content: flex-start;
+  }
+
+  &.not-top {
+    margin-top: 0px;
+    height: var(--header-h-2);
+    background: rgba(20, 32, 45, 0.60);
+    transition: height .5s ease-in-out, background .5s .5s ease-in-out, margin .5s ease-in-out;
+
+    .header__logo {
+      svg {
+        .first-path, .second-path {
+          transition: fill .5s .5s ease-in-out;
+          fill: var(--white);
+        }
+
+        .third-path {
+          transition: stroke .5s .5s ease-in-out;
+          stroke: var(--white);
+        }
+      }
+    }
+
+    .link-hover.link-hover-header, .link-hover-2 {
+      span {
+        &:before {
+          background: var(--white);
+        }
+      }
+    }
+
+    .lang a span, .tel, .menu-btn > span {
+      transition: color .5s .5s ease-in-out;
+      color: var(--white);
+    }
+
+    .lang .active a span {
+      border-bottom: 1px solid var(--white);
+      transition: color .5s .5s ease-in-out, border-bottom .5s .5s ease-in-out;
+    }
+  }
+
+  .link-hover.link-hover-header, .link-hover-2.link-hover-header {
+    span {
+      &:before {
+        background: var(--white);
+      }
+    }
+  }
+
+  &__logo {
+    width: auto;
+    height: calc(100% - 20px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include to(1600px) {
+      height: calc(100% - 10px);
+    }
+
+    @include to(1024px) {
+      position: static;
+      transform: none;
+      left: 0;
+      order: 1;
+    }
+
+    @include to(680px) {
+      height: var(--btn-h);
+      margin-right: auto;
+    }
+
+    svg {
+      height: 100%;
+      width: auto;
+
+      .first-path, .second-path {
+        transition: fill .3s linear;
+        fill: var(--white);
+
+        @include to(1024px) {
+          fill: var(--white);
+        }
+      }
+
+      .third-path {
+        transition: stroke .3s linear;
+        stroke: var(--white);
+
+        @include to(1024px) {
+          stroke: var(--white);
+        }
+      }
+    }
+  }
+
+  .lang {
+    margin-right: var(--header-offset);
+
+    @include to(1024px) {
+      margin-right: var(--header-offset);
+      margin-left: auto;
+      order: 2;
+    }
+  }
+
+  .form-call {
+    margin-right: var(--header-offset);
+
+    @include to(1024px) {
+      display: none;
+    }
+  }
+
+  .tel {
+    margin-right: auto;
+    color: var(--white);
+    transition: color .3s ease-in-out;
+
+    @include to(1024px) {
+      display: none;
+    }
+  }
+
+  .mobile-form-call {
+    display: none;
+
+    @include to(1024px) {
+      order: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      width: var(--btn-h);
+      margin-right: var(--header-offset);
+
+      svg {
+        margin: 0;
+      }
+    }
+  }
+
+  .btn-3d {
+    margin-right: var(--header-offset);
+
+    @include to(1024px) {
+      order: 4;
+    }
+
+    @include to(680px) {
+      width: var(--btn-h);
+      padding: 0;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        margin-left: 0;
+      }
+
+      .svg {
+        display: none;
+      }
+    }
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @include to(1024px) {
+      order: 5;
+    }
+
+    & > span {
+      color: var(--white);
+      text-align: center;
+      font-family: $default-font-2;
+      font-size: var(--font-14);
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+      text-transform: uppercase;
+      margin-right: var(--padding-12);
+      transition: color .3s ease-in-out;
+
+      @include to(1024px) {
+        color: var(--white);
+      }
+
+      @include to(680px) {
+        display: none;
+      }
+    }
+
+    &__icon {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3px;
+      align-content: center;
+      justify-items: flex-start;
+
+      &__wrapper {
+        height: var(--btn-h);
+        width: var(--btn-h);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        border: 1px solid var(--blue-secondary);
+        background: var(--gold-primary);
+      }
+
+      span {
+        height: 2px;
+        width: 20px;
+        background: var(--blue-secondary);
+
+        &:first-child {
+          width: 10px;
+        }
+      }
+    }
+  }
+}
+
+[id*="home"] {
+  .header {
+    .link-hover.link-hover-header, .link-hover-2 {
+      span {
+        &:before {
+          background: var(--dark-blue);
+
+          @include to(1024px) {
+            background: var(--white);
+          }
+        }
+      }
+    }
+
+    .form-hover {
+      .text-14-white {
+        &:before {
+          background: var(--dark-blue);
+
+          @include to(1024px) {
+            background: var(--white);
+          }
+        }
+      }
+    }
+
+    .header__logo {
+      svg {
+        .first-path, .second-path {
+          fill: var(--blue-secondary);
+
+          @include to(1024px) {
+            fill: var(--white);
+          }
+        }
+
+        .third-path {
+          stroke: var(--blue-secondary);
+
+          @include to(1024px) {
+            stroke: var(--white);
+          }
+        }
+      }
+    }
+
+    .lang {
+      .lang-item {
+        color: var(--blue-secondary);
+
+        @include to(1024px) {
+          color: var(--white);
+        }
+
+        a {
+          span {
+            color: var(--blue-secondary);
+
+            @include to(1024px) {
+              color: var(--white);
+            }
+          }
+        }
+
+        &.active {
+          a span {
+            border-bottom: 1px solid var(--blue-secondary);
+
+            @include to(1024px) {
+              border-bottom: 1px solid var(--white);
+            }
+          }
+        }
+      }
+    }
+
+    .tel {
+      color: var(--blue-secondary);
+
+      @include to(1024px) {
+        color: var(--white);
+      }
+    }
+
+    .menu-btn {
+      & > span {
+        color: var(--blue-secondary);
+
+        @include to(1024px) {
+          color: var(--white);
+        }
+      }
+    }
+
+    &.not-top {
+      .header__logo {
+        svg {
+          .first-path, .second-path {
+            fill: var(--white);
+          }
+
+          .third-path {
+            stroke: var(--white);
+          }
+        }
+      }
+
+      .link-hover.link-hover-header, .link-hover-2 {
+        span {
+          &:before {
+            background: var(--white);
+          }
+        }
+      }
+
+      .form-hover {
+        .text-14-white {
+          &:before {
+            background: var(--white);
+          }
+        }
+      }
+
+      .lang a span, .tel, .menu-btn > span {
+        color: var(--white);
+      }
+
+      .lang .active a span {
+        border-bottom: 1px solid var(--white);
+      }
+    }
+  }
+}
+
