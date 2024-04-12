@@ -8,7 +8,7 @@
   button {
     background: transparent;
     border: none;
-    color: var(--gold-primary);
+    color: var(--white);
     transition: .3s ease-in-out;
     position: relative;
     padding: 0;
@@ -20,7 +20,7 @@
     @include from(1023px) {
       &:hover {
         &:not(.active) {
-          color: var(--white);
+          color: var(--gold-primary);
         }
       }
     }
@@ -37,11 +37,11 @@
     }
 
     &.active {
-      color: var(--white);
+      color: var(--gold-primary);
       pointer-events: none;
 
       &:before {
-        background: var(--white);
+        background: var(--gold-primary);
       }
     }
 
